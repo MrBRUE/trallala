@@ -39,4 +39,24 @@ public class GreetingEndpoint {
         String message = String.format(properties.getMessage(), name);
         return new Greeting(message);
     }
+    
+        @GET
+    @Path("/htmlecho")
+    @Produces("text/html")
+    public String echoHTML(@QueryParam("input") @DefaultValue("How creative!") String inputvar) {
+        String message = "<html>"
+            +"<head>"
+            +"<meta charset=\"utf-8\">"
+            +"<title></title>"
+            +"<meta name=\"author\" content=\"moe\">"
+            +"<meta name=\"description\" content=\"\">"
+            +"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+            +"</head>"
+            +"<body>"
+            +inputvar
+            +"</body>"
+            +"</html>";
+        return message;
+    }
+    
 }
